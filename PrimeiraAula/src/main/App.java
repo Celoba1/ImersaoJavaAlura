@@ -12,8 +12,6 @@ import java.util.Map;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        final String ANSI_RESET = "\u001b[m";
-        final String ANSI_PURPLE_BACKGROUND = "\u001b[44;1m";
         String url = "https://mocki.io/v1/9a7c1ca9-29b4-4eb3-8306-1adb9d159060";
         URI endereco = URI.create(url);
         var client = HttpClient.newHttpClient();
@@ -27,7 +25,8 @@ public class App {
 
         // exibir e manipular os dados
         for (Map<String, String> filme : listaDeFilmes) {
-            System.out.println("Titulo: " + filme.get("title") + ANSI_RESET);
+            System.out.println("-------------------------------");
+            System.out.println("Titulo: " + filme.get("title"));
 
             var starCount = (int) Math.round(Double.parseDouble(filme.get("imDbRating")));
             var rating = Double.parseDouble(filme.get("imDbRating"));
